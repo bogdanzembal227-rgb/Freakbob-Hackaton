@@ -1,4 +1,8 @@
 extends Node2D
+
+func _ready() -> void:
+	$"Bullet storm".setup("left_wall","BT")
+	$"Bullet storm2".setup("right_wall","BT")
 #
 #@export var ghost_scene: PackedScene = preload("uid://btombpl6oh2pf")
 #

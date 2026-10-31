@@ -2,15 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
 [ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
+[ext_resource type="PackedScene" uid="uid://dne4yjqby1dfj" path="res://attacks/bullets_/bullet_storm.tscn" id="3_8fiom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8f5"]
 size = Vector2(750, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fiom"]
-size = Vector2(150, 1)
+size = Vector2(150, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1x6b"]
-size = Vector2(300, 1)
+size = Vector2(300, 15)
 
 [node name="Map" type="Node2D" unique_id=1871153154]
 script = ExtResource("1_bx8f5")
@@ -23,7 +24,7 @@ dash_speed = 1000.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1024390194]
 position = Vector2(375, 375)
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.8, 0.8)
 process_callback = 0
 
 [node name="walls" type="Node2D" parent="." unique_id=1648895883]
@@ -91,3 +92,7 @@ rotation = 1.5707964
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Platform5" unique_id=1821217974]
 position = Vector2(150, 0)
 shape = SubResource("RectangleShape2D_u1x6b")
+
+[node name="Bullet storm" parent="." unique_id=237419757 instance=ExtResource("3_8fiom")]
+
+[node name="Bullet storm2" parent="." unique_id=1645200424 instance=ExtResource("3_8fiom")]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dne4yjqby1dfj"]
+
+[ext_resource type="Script" uid="uid://b4ujw02lr0fvv" path="res://scripts/bullet_storm.gd" id="1_xjtn1"]
+
+[node name="Bullet storm" type="Node2D" unique_id=237419757]
+script = ExtResource("1_xjtn1")

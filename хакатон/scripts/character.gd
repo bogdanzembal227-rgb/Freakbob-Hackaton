@@ -81,12 +81,17 @@ func _physics_process(delta: float) -> void:
 	var wall_dir := _get_wall_dir()
 	var wall_sliding := not is_on_floor() and wall_dir != 0 and velocity.y > 0.0 \
 			and input_x == float(wall_dir)
-
+	$Hurtbox/CollisionShape2D.position = Vector2.ZERO
+	$Hurtbox/CollisionShape2D.scale = Vector2(1,1)
 	if not is_on_floor():
 		var g := gravity * (fall_gravity_mult if velocity.y > 0.0 else 1.0)
 		velocity.y = minf(velocity.y + g * delta, max_fall_speed)
 		if wall_sliding:
+			$Hurtbox/CollisionShape2D.scale =  Vector2(0.4, 1.2)
+			$Hurtbox/CollisionShape2D.position.x = 12*wall_dir
 			velocity.y = minf(velocity.y, wall_slide_speed)
+	
+
 
 	if wall_lock_timer <= 0.0:
 		var accel := ground_accel if is_on_floor() else air_accel
@@ -177,3 +182,7 @@ func _update_ghosts(delta: float, active: bool) -> void:
 	if ghost_timer <= 0.0:
 		ghost_timer = ghost_interval
 		_spawn_ghost()
+
+func death():
+	get_tree().paused = true
+	queue_free()

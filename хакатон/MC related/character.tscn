@@ -20,9 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://dfmjqitnojym0" path="res://sprites/slime/run/Sprite-0004.png" id="18_tfh0w"]
 [ext_resource type="Texture2D" uid="uid://cy76aprqkbt1b" path="res://sprites/slime/run/Sprite-0005.png" id="19_cgxxq"]
 [ext_resource type="Texture2D" uid="uid://quagonprm6sd" path="res://sprites/slime/run/Sprite-0006.png" id="20_t8n6c"]
+[ext_resource type="Script" uid="uid://c5424udig5wb4" path="res://attacks/components/Hurbox.gd" id="21_cu22p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_reghy"]
-size = Vector2(29, 25)
+size = Vector2(38, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1srl5"]
 animations = [{
@@ -104,6 +105,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu22p"]
+size = Vector2(32, 28)
+
 [node name="Character" type="CharacterBody2D" unique_id=1005997622]
 script = ExtResource("1_reghy")
 dash_speed = 800.0
@@ -114,4 +118,15 @@ shape = SubResource("RectangleShape2D_reghy")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=997333630]
 texture_filter = 1
+scale = Vector2(1.2762486, 1.2762486)
 sprite_frames = SubResource("SpriteFrames_1srl5")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1498744299]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_cu22p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1148166554]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_cu22p")
+debug_color = Color(0.9721127, 0.16925484, 1.92523e-07, 0.41960785)
