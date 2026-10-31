@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cpbjj4c8hdw0a"]
+
+[ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
+
+[node name="Map" type="Node2D" unique_id=1871153154]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1024390194]
+zoom = Vector2(10, 10)
+
+[node name="Character" parent="." unique_id=1005997622 instance=ExtResource("1_ac0vu")]
+motion_mode = 1

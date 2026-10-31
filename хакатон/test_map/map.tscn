@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cpbjj4c8hdw0a"]
 
 [ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
+[ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
 
 [node name="Map" type="Node2D" unique_id=1871153154]
+script = ExtResource("1_bx8f5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1024390194]
 zoom = Vector2(10, 10)
