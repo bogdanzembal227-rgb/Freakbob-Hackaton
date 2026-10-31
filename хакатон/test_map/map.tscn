@@ -6,6 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8f5"]
 size = Vector2(1000, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fiom"]
+size = Vector2(200, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1x6b"]
+size = Vector2(400, 1)
+
 [node name="Map" type="Node2D" unique_id=1871153154]
 script = ExtResource("1_bx8f5")
 
@@ -43,3 +49,35 @@ shape = SubResource("RectangleShape2D_bx8f5")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1024390194]
 position = Vector2(500, 500)
 zoom = Vector2(0.59, 0.59)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1754579860]
+position = Vector2(271, 787)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=302284194]
+shape = SubResource("RectangleShape2D_8fiom")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=624973525]
+position = Vector2(690, 792)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=74181988]
+shape = SubResource("RectangleShape2D_8fiom")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1768023746]
+position = Vector2(487, 614)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=164251173]
+shape = SubResource("RectangleShape2D_8fiom")
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1093202309]
+position = Vector2(271, 200)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1234928228]
+shape = SubResource("RectangleShape2D_u1x6b")
+
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=348262425]
+position = Vector2(690, 200)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=1821217974]
+shape = SubResource("RectangleShape2D_u1x6b")

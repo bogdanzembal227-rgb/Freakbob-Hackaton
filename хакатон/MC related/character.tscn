@@ -4,16 +4,27 @@
 [ext_resource type="Script" uid="uid://b06tc2lik340s" path="res://scripts/character.gd" id="1_reghy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_reghy"]
-size = Vector2(65, 65)
+size = Vector2(64, 64)
 
 [node name="Character" type="CharacterBody2D" unique_id=1005997622]
 script = ExtResource("1_reghy")
 jump_velocity = -600.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=916781487]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=444526359]
+shape = SubResource("RectangleShape2D_reghy")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=916781487]
+visible = false
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1srl5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=444526359]
-shape = SubResource("RectangleShape2D_reghy")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=867600610]
+visible = false
+custom_minimum_size = Vector2(48, 48)
+offset_left = -32.0
+offset_top = -33.0
+offset_right = 16.0
+offset_bottom = 15.0
+scale = Vector2(1.3599994, 1.3599994)
+color = Color(0.27627036, 0.564777, 5.7756904e-07, 1)
