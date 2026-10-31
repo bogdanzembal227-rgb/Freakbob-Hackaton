@@ -3,11 +3,43 @@
 [ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
 [ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8f5"]
+size = Vector2(1000, 1)
+
 [node name="Map" type="Node2D" unique_id=1871153154]
 script = ExtResource("1_bx8f5")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1024390194]
-zoom = Vector2(10, 10)
-
 [node name="Character" parent="." unique_id=1005997622 instance=ExtResource("1_ac0vu")]
-motion_mode = 1
+position = Vector2(500, 858)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=618789774]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=71870929]
+position = Vector2(500, 0)
+shape = SubResource("RectangleShape2D_bx8f5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=345979139]
+position = Vector2(0, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1283764967]
+position = Vector2(500, 0)
+shape = SubResource("RectangleShape2D_bx8f5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=814031626]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=49299056]
+position = Vector2(500, 0)
+shape = SubResource("RectangleShape2D_bx8f5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1963026041]
+position = Vector2(1000, 0)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1911052959]
+position = Vector2(500, 0)
+shape = SubResource("RectangleShape2D_bx8f5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1024390194]
+position = Vector2(500, 500)
+zoom = Vector2(0.59, 0.59)
