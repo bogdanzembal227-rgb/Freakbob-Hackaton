@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
 [ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
+[ext_resource type="PackedScene" path="res://menu/pause_menu.tscn" id="2_8fiom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8f5"]
 size = Vector2(750, 1)
@@ -14,6 +15,8 @@ size = Vector2(300, 1)
 
 [node name="Map" type="Node2D" unique_id=1871153154]
 script = ExtResource("1_bx8f5")
+
+[node name="PauseMenu" parent="." unique_id=1224889914 instance=ExtResource("2_8fiom")]
 
 [node name="Character" parent="." unique_id=1005997622 instance=ExtResource("1_ac0vu")]
 position = Vector2(364, 600)
