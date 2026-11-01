@@ -1,32 +1,38 @@
-[gd_scene format=3 uid="uid://c05qy5c6ye3y2"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://dv3td48q20gm0" path="res://menu/pause_menu.gd" id="1_script"]
-[ext_resource type="Theme" uid="uid://cr6trbpa2ocft" path="res://menu/menu_theme.tres" id="2_theme"]
-[ext_resource type="Texture2D" uid="uid://djapgpjwh2eyq" path="res://menu/menu_button.png" id="3_icon"]
-[ext_resource type="Shader" uid="uid://bxcmrju4whu03" path="res://menu/blur.gdshader" id="4_shader"]
+[ext_resource type="Script" path="res://menu/pause_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://menu/btn_hamburger.png" id="3_icon"]
+[ext_resource type="Shader" path="res://menu/blur.gdshader" id="4_shader"]
 [ext_resource type="PackedScene" path="res://menu/options_menu.tscn" id="5_options"]
+[ext_resource type="Script" path="res://menu/texture_button_fx.gd" id="6_fx"]
+[ext_resource type="Texture2D" path="res://menu/btn_play.png" id="7_play"]
+[ext_resource type="Texture2D" path="res://menu/btn_options.png" id="8_options"]
+[ext_resource type="Texture2D" path="res://menu/btn_exit.png" id="9_exit"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_blur"]
 shader = ExtResource("4_shader")
 shader_parameter/blur_amount = 2.5
-shader_parameter/tint_strength = 0.25
+shader_parameter/tint_color = Color(0.17, 0.2, 0.2, 1)
+shader_parameter/tint_strength = 0.45
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=528769118]
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 layer = 10
 script = ExtResource("1_script")
 
-[node name="OpenButton" type="TextureButton" parent="." unique_id=1742701579]
+[node name="OpenButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
-texture_filter = 1
+focus_mode = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 98.0
-offset_bottom = 108.0
-focus_mode = 0
+offset_right = 84.0
+offset_bottom = 84.0
 texture_normal = ExtResource("3_icon")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")
 
-[node name="Overlay" type="Control" parent="." unique_id=794597613]
+[node name="Overlay" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
@@ -35,9 +41,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_theme")
 
-[node name="Blur" type="ColorRect" parent="Overlay" unique_id=958746260]
+[node name="Blur" type="ColorRect" parent="Overlay"]
 material = SubResource("ShaderMaterial_blur")
 layout_mode = 1
 anchors_preset = 15
@@ -45,8 +50,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 1)
 
-[node name="MainButtons" type="CenterContainer" parent="Overlay" unique_id=895884145]
+[node name="MainButtons" type="CenterContainer" parent="Overlay"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -55,29 +61,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="VBoxContainer" parent="Overlay/MainButtons" unique_id=1398668210]
+[node name="Buttons" type="VBoxContainer" parent="Overlay/MainButtons"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 14
 
-[node name="PlayButton" type="Button" parent="Overlay/MainButtons/Buttons" unique_id=559700508]
+[node name="PlayButton" type="TextureButton" parent="Overlay/MainButtons/Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
-text = "PLAY"
+texture_normal = ExtResource("7_play")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")
 
-[node name="OptionsButton" type="Button" parent="Overlay/MainButtons/Buttons" unique_id=167911006]
+[node name="OptionsButton" type="TextureButton" parent="Overlay/MainButtons/Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
-text = "OPTIONS"
+texture_normal = ExtResource("8_options")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")
 
-[node name="ExitButton" type="Button" parent="Overlay/MainButtons/Buttons" unique_id=367037684]
+[node name="ExitButton" type="TextureButton" parent="Overlay/MainButtons/Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
-text = "EXIT"
+texture_normal = ExtResource("9_exit")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")
 
-[node name="OptionsMenu" parent="Overlay" unique_id=1685768249 instance=ExtResource("5_options")]
+[node name="OptionsMenu" parent="Overlay" instance=ExtResource("5_options")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 standalone = false

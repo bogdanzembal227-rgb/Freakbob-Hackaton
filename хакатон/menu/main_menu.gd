@@ -1,18 +1,20 @@
 extends Control
 
+## Шляхи до сцен. Їх можна змінити прямо в Inspector.
 @export_file("*.tscn") var level_path: String = "res://test_map/map.tscn"
 @export_file("*.tscn") var options_path: String = "res://menu/options_menu.tscn"
 
-@onready var play_button: Button = %PlayButton
-@onready var options_button: Button = %OptionsButton
-@onready var exit_button: Button = %ExitButton
+@onready var play_button: BaseButton = %PlayButton
+@onready var options_button: BaseButton = %OptionsButton
+@onready var exit_button: BaseButton = %ExitButton
 
 
 func _ready() -> void:
-	$AudioStreamPlayer2D.play()
+	
 	play_button.pressed.connect(_on_play_pressed)
 	options_button.pressed.connect(_on_options_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)
+	# щоб меню можна було гортати стрілками/Enter
 	play_button.grab_focus()
 
 
