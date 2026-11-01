@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c0dumodt4uek6"]
+
+[ext_resource type="Script" uid="uid://dpnyrkny6or3k" path="res://scripts/laser.gd" id="1_jfk47"]
+[ext_resource type="Script" uid="uid://p3o2o30482x2" path="res://attacks/components/Hitbox.gd" id="2_awvs3"]
+
+[node name="Laser" type="Node2D" unique_id=113583070]
+script = ExtResource("1_jfk47")
+max_reflections = 10
+max_length = 10000.0
+
+[node name="Beam" type="Line2D" parent="." unique_id=1752607169]
+width = 2.0
+
+[node name="Area2D" type="Area2D" parent="Beam" unique_id=1466094033]
+script = ExtResource("2_awvs3")

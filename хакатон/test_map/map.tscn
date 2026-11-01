@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
 [ext_resource type="PackedScene" uid="uid://c05qy5c6ye3y2" path="res://menu/pause_menu.tscn" id="2_8fiom"]
 [ext_resource type="Texture2D" uid="uid://bulnvjgr5f55g" path="res://sprites/bgbgbbggbg23.png" id="4_u1x6b"]
-[ext_resource type="PackedScene" uid="uid://cyi72qgi1cifo" path="res://attacks/saw/path.tscn" id="5_tx4on"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0so17"]
 size = Vector2(750, 1)
@@ -99,5 +98,3 @@ z_index = -1
 position = Vector2(375, 375)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_u1x6b")
-
-[node name="Path" parent="." unique_id=994390223 instance=ExtResource("5_tx4on")]

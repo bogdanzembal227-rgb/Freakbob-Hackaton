@@ -109,6 +109,7 @@ animations = [{
 size = Vector2(32, 28)
 
 [node name="Character" type="CharacterBody2D" unique_id=1005997622]
+collision_layer = 2
 script = ExtResource("1_reghy")
 dash_speed = 800.0
 
