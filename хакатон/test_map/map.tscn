@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
 [ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
 [ext_resource type="PackedScene" uid="uid://c05qy5c6ye3y2" path="res://menu/pause_menu.tscn" id="2_8fiom"]
-[ext_resource type="PackedScene" uid="uid://btroej48kbh8k" path="res://buttons/button.tscn" id="5_tx4on"]
 [ext_resource type="PackedScene" uid="uid://cv63mwjlbkqlc" path="res://test_map/layout.tscn" id="5_xwcmi"]
 [ext_resource type="Texture2D" uid="uid://c00ym36q7hwuv" path="res://sprites/midle2.png" id="6_cwfdr"]
 [ext_resource type="Texture2D" uid="uid://bsnegw0a6funx" path="res://sprites/side2.png" id="7_2mh8h"]
@@ -176,8 +175,6 @@ tile_set = SubResource("TileSet_eyj6g")
 script = ExtResource("8_2mh8h")
 
 [node name="Timer" type="Timer" parent="Button Manager" unique_id=194471430]
-
-[node name="Button" parent="Button Manager" unique_id=884965102 instance=ExtResource("5_tx4on")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1353491338]
 stream = ExtResource("8_vvn0s")
