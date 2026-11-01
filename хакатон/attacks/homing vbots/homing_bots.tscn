@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://q7riyo46shdt" path="res://scripts/hom_bots.gd" id="1_0wqy8"]
 [ext_resource type="Script" uid="uid://p3o2o30482x2" path="res://attacks/components/Hitbox.gd" id="2_0wqy8"]
 [ext_resource type="Script" uid="uid://bd8tj0vldpkct" path="res://scripts/hom_bot_trail.gd" id="2_fq8jw"]
+[ext_resource type="Texture2D" uid="uid://cqc2mkthgwysn" path="res://sprites/eyeball.png" id="4_t3xr4"]
+[ext_resource type="AudioStream" uid="uid://b14bp8xkvne3r" path="res://attacks/homing vbots/smegma.wav" id="5_rubi7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mnuhk"]
 radius = 9.0
@@ -22,7 +24,6 @@ max_points = 20
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1104823771]
 collision_layer = 0
-collision_mask = 0
 script = ExtResource("2_0wqy8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=594473926]
@@ -34,4 +35,15 @@ shape = SubResource("CircleShape2D_0wqy8")
 [node name="Lifetime" type="Timer" parent="." unique_id=915499978]
 wait_time = 15.0
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407111233]
+texture_filter = 1
+rotation = -1.5707964
+texture = ExtResource("4_t3xr4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1456624853]
+stream = ExtResource("5_rubi7")
+volume_db = -15.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

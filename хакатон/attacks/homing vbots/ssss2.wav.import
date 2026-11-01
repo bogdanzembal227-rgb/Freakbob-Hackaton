@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwjuh3eb6u04u"
+path="res://.godot/imported/ssss2.wav-ca4d5b1ce530cf2b409f2ce6ba5ae7e9.sample"
+
+[deps]
+
+source_file="res://attacks/homing vbots/ssss2.wav"
+dest_files=["res://.godot/imported/ssss2.wav-ca4d5b1ce530cf2b409f2ce6ba5ae7e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -28,6 +28,7 @@ class_name Player
 @export var ghost_interval := 0.03
 @export var ghost_lifetime := 0.25
 @export var ghost_color := Color(1, 1, 1, 0.6)
+@export var health: int =1
 var ghost_timer := 0.0
 
 var coyote_timer := 0.0
@@ -64,6 +65,7 @@ func _physics_process(delta: float) -> void:
 		dashes_left = air_dashes
 		
 	if dash_timer > 0.0:
+		$Hurtbox.set_collision_mask_value(2,false)
 		is_dashing = true
 		dash_timer -= delta
 		_update_ghosts(delta, true)
@@ -73,6 +75,7 @@ func _physics_process(delta: float) -> void:
 			is_dashing = false
 			velocity.x *= 0.4
 			velocity.y = clampf(velocity.y, dash_end_up_speed, max_fall_speed)
+			$Hurtbox.set_collision_mask_value(2,true)
 		_squash_stretch(delta)
 		return
 
@@ -114,10 +117,12 @@ func _physics_process(delta: float) -> void:
 
 	if buffer_timer > 0.0:
 		if coyote_timer > 0.0:
+			$AudioStreamPlayer2D.play()
 			velocity.y = jump_velocity
 			buffer_timer = 0.0
 			coyote_timer = 0.0
 		elif wall_dir != 0 and not is_on_floor():
+			$AudioStreamPlayer2D.play()
 			velocity = Vector2(-wall_dir * wall_jump_velocity.x, wall_jump_velocity.y)
 			facing = -wall_dir
 			wall_lock_timer = wall_jump_lock
@@ -176,8 +181,8 @@ func _spawn_ghost() -> void:
 	ghost.offset = sprite.offset
 	ghost.modulate = ghost_color
 	ghost.z_index = z_index - 1
-	get_parent().add_child(ghost)               # parent is the level, so it stays behind
-	ghost.global_transform = sprite.global_transform  # set AFTER add_child
+	get_parent().add_child(ghost)             
+	ghost.global_transform = sprite.global_transform 
 
 	var tw := ghost.create_tween()
 	tw.tween_property(ghost, "modulate:a", 0.0, ghost_lifetime)
@@ -194,5 +199,29 @@ func _update_ghosts(delta: float, active: bool) -> void:
 		_spawn_ghost()
 
 func death():
+	AttacksManager.stop()
 	get_tree().paused = true
+	sprite.play("death")
+	await sprite.animation_finished
 	queue_free()
+
+
+var has_shield := false
+@onready var shield_visual: Sprite2D = $Sprite2D2
+
+func give_shield() -> void:
+	has_shield = true
+	shield_visual.visible = true
+
+func take_damage(amount: int = 1) -> void:
+	if has_shield:
+		has_shield = false
+		shield_visual.visible = false
+		_start_invulnerability(2.0)
+		return
+	death()
+
+func _start_invulnerability(time: float) -> void:
+	$Hurtbox.set_collision_mask_value(2,false)
+	await get_tree().create_timer(time).timeout
+	$Hurtbox.set_collision_mask_value(2,true)

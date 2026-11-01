@@ -1,6 +1,8 @@
 extends Node2D
 
-#func _ready() -> void:
+func _ready() -> void:
+	$AudioStreamPlayer2D.play()
+	AttacksManager.start()
 	#$"Bullet storm".setup("top","LR")
 	#$"Bullet storm2".setup("right_wall","BT")
 #

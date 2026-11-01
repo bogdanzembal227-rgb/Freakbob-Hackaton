@@ -11,7 +11,7 @@ extends Node2D
 func _ready() -> void:
 	await get_tree().create_timer(1.0).timeout
 	target = get_tree().get_first_node_in_group("player")
-	var dir := (target.global_position - global_position).normalized()
+	var dir = (target.global_position - global_position).normalized()
 	layout_beam(global_position, dir)
 
 #func _physics_process(_delta: float) -> void:
@@ -49,6 +49,7 @@ func layout_beam(origin: Vector2, dir: Vector2) -> void:
 	attack()
 
 func attack():
+	$AudioStreamPlayer2D.play()
 	for point in beam.points.size()-1:
 		var width = 1.0
 		var length = beam.points[point+1]-beam.points[point]
@@ -59,5 +60,5 @@ func attack():
 		collision_shape.global_position = beam.points[point] + length/2
 		collision_shape.rotation = (beam.points[point+1]-beam.points[point]).angle()
 		area.add_child(collision_shape)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.4).timeout
 	queue_free()

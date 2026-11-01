@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpnyrkny6or3k" path="res://scripts/laser.gd" id="1_jfk47"]
 [ext_resource type="Script" uid="uid://p3o2o30482x2" path="res://attacks/components/Hitbox.gd" id="2_awvs3"]
+[ext_resource type="AudioStream" uid="uid://d4mg0fhbr3hou" path="res://sprites/laser.wav" id="3_kis00"]
 
 [node name="Laser" type="Node2D" unique_id=113583070]
 script = ExtResource("1_jfk47")
@@ -13,3 +14,6 @@ width = 2.0
 
 [node name="Area2D" type="Area2D" parent="Beam" unique_id=1466094033]
 script = ExtResource("2_awvs3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=949593828]
+stream = ExtResource("3_kis00")

@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://b1rpvtuhwy4pn"]
 
 [ext_resource type="Script" uid="uid://b06tc2lik340s" path="res://scripts/character.gd" id="1_reghy"]
+[ext_resource type="Texture2D" uid="uid://cadypn3tuy68n" path="res://sprites/slime/death/death1.png" id="2_advhp"]
 [ext_resource type="Texture2D" uid="uid://catkneumqudj8" path="res://sprites/slime/idle/Sprite-0001.png" id="2_s7yir"]
 [ext_resource type="Texture2D" uid="uid://cptw8njb0ecr3" path="res://sprites/slime/idle/Sprite-0002.png" id="3_5qplr"]
+[ext_resource type="Texture2D" uid="uid://2a1ufobsv1wr" path="res://sprites/slime/death/death2.png" id="3_pddm2"]
+[ext_resource type="Texture2D" uid="uid://c3v6ybvbgsr5" path="res://sprites/slime/death/death3.png" id="4_aag4i"]
 [ext_resource type="Texture2D" uid="uid://c8fhqjdifipgo" path="res://sprites/slime/idle/Sprite-0003.png" id="4_p8st4"]
 [ext_resource type="Texture2D" uid="uid://bkvt8431n27mo" path="res://sprites/slime/idle/Sprite-0004.png" id="5_4vyt6"]
+[ext_resource type="Texture2D" uid="uid://dd3vanq8gqot0" path="res://sprites/slime/death/death4.png" id="5_hvr8q"]
 [ext_resource type="Texture2D" uid="uid://b0i3cp7vnee8a" path="res://sprites/slime/lipne do stiny/Sprite-0004.png" id="6_dch7c"]
+[ext_resource type="Texture2D" uid="uid://dcccr6mnirb88" path="res://sprites/slime/death/death5.png" id="6_tfh0w"]
+[ext_resource type="Texture2D" uid="uid://culky5ogb6ycq" path="res://sprites/slime/death/death6.png" id="7_cgxxq"]
 [ext_resource type="Texture2D" uid="uid://dvfxgrl32qydt" path="res://sprites/slime/lipne do stiny/Sprite-0005.png" id="7_cu22p"]
 [ext_resource type="Texture2D" uid="uid://0w3c47pd5sad" path="res://sprites/slime/lipne do stiny/Sprite-0006.png" id="8_0i2at"]
+[ext_resource type="Texture2D" uid="uid://clo48q2tvhfuf" path="res://sprites/slime/death/death7.png" id="8_t8n6c"]
 [ext_resource type="Texture2D" uid="uid://bci7a0r3f03dt" path="res://sprites/slime/jump/Sprite-0003.png" id="9_ubvjy"]
 [ext_resource type="Texture2D" uid="uid://he0jaksrfrtw" path="res://sprites/slime/jump/Sprite-0004.png" id="10_a8mfx"]
 [ext_resource type="Texture2D" uid="uid://bt43ne8c57o5w" path="res://sprites/slime/jump/Sprite-0005.png" id="11_7osgr"]
@@ -21,13 +28,40 @@
 [ext_resource type="Texture2D" uid="uid://cy76aprqkbt1b" path="res://sprites/slime/run/Sprite-0005.png" id="19_cgxxq"]
 [ext_resource type="Texture2D" uid="uid://quagonprm6sd" path="res://sprites/slime/run/Sprite-0006.png" id="20_t8n6c"]
 [ext_resource type="Script" uid="uid://c5424udig5wb4" path="res://attacks/components/Hurbox.gd" id="21_cu22p"]
-[ext_resource type="Script" uid="uid://d07cf6m4xyy6r" path="res://MC related/color_rect.gd" id="23_ubvjy"]
+[ext_resource type="Texture2D" uid="uid://bhpc28pgpushq" path="res://sprites/shield.png" id="29_pddm2"]
+[ext_resource type="AudioStream" uid="uid://cfaywge1vtbwf" path="res://sprites/jump.wav" id="30_aag4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_reghy"]
 size = Vector2(38, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1srl5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_advhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pddm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aag4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hvr8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tfh0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cgxxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t8n6c")
+}],
+"loop": false,
+"name": &"death",
+"speed": 24.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_s7yir")
@@ -109,9 +143,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu22p"]
 size = Vector2(32, 28)
 
+[sub_resource type="Gradient" id="Gradient_cwfdr"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_advhp"]
+gradient = SubResource("Gradient_cwfdr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Character" type="CharacterBody2D" unique_id=1005997622]
 collision_layer = 2
 script = ExtResource("1_reghy")
+wall_slide_speed = 1.0
 dash_speed = 800.0
 air_dashes = 2
 
@@ -120,9 +164,11 @@ position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_reghy")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=997333630]
+process_mode = 3
 texture_filter = 1
 scale = Vector2(1.26, 1.26)
 sprite_frames = SubResource("SpriteFrames_1srl5")
+animation = &"death"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1498744299]
 collision_layer = 2
@@ -134,11 +180,24 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_cu22p")
 debug_color = Color(0.9721127, 0.16925484, 1.92523e-07, 0.41960785)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1042583937]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=995815590]
+visible = false
+energy = 1.5
+texture = SubResource("GradientTexture2D_advhp")
+texture_scale = 14.88
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=944820096]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-script = ExtResource("23_ubvjy")
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=372671206]
+visible = false
+position = Vector2(-373, -304)
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=42164954]
+visible = false
+texture_filter = 1
+position = Vector2(-0.99999994, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_pddm2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=369242336]
+stream = ExtResource("30_aag4i")
+volume_db = -5.0

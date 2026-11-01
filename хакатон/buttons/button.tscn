@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://btroej48kbh8k"]
 
 [ext_resource type="Script" uid="uid://c6c6qt4x740ym" path="res://scripts/button.gd" id="1_351cb"]
+[ext_resource type="Texture2D" uid="uid://buqfoti51uvup" path="res://sprites/half_button.png" id="2_fi6sg"]
+[ext_resource type="AudioStream" uid="uid://oqjvuhasww5o" path="res://menu/touch.wav" id="3_c1h3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi6sg"]
 size = Vector2(50, 15)
+
+[sub_resource type="Gradient" id="Gradient_fi6sg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1h3g"]
+gradient = SubResource("Gradient_fi6sg")
+width = 10
+height = 10
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_351cb"]
 size = Vector2(60, 10)
@@ -19,10 +32,31 @@ collision_mask = 2
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_fi6sg")
 
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=747093467]
+z_index = -1
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 24.0
+offset_bottom = -3.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D/ColorRect" unique_id=1966554873]
+position = Vector2(23.77, 0)
+texture = SubResource("GradientTexture2D_c1h3g")
+texture_scale = 14.88
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=102535021]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=28884393]
 shape = SubResource("RectangleShape2D_351cb")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1105730132]
+texture_filter = 1
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(1.7142857, 1)
+texture = ExtResource("2_fi6sg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1686745210]
+stream = ExtResource("3_c1h3g")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

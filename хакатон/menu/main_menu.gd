@@ -9,6 +9,7 @@ extends Control
 
 
 func _ready() -> void:
+	$AudioStreamPlayer2D.play()
 	play_button.pressed.connect(_on_play_pressed)
 	options_button.pressed.connect(_on_options_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)

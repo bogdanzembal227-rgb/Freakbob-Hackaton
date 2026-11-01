@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func on_area_entered(area:Area2D):
 	if area is Hitbox:
-		owner.death()
+		owner.take_damage(1)

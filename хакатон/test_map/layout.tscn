@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cv63mwjlbkqlc"]
+
+[ext_resource type="Script" uid="uid://bwtwcgmh2bcwo" path="res://scripts/layout.gd" id="1_loatm"]
+[ext_resource type="Texture2D" uid="uid://po307ltkhk10" path="res://sprites/bgbgbbggbg12312312.png" id="2_g5ine"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0so17"]
+size = Vector2(750, 1)
+
+[node name="layout" type="Node2D" unique_id=659448933]
+position = Vector2(375, 375)
+script = ExtResource("1_loatm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1920756533]
+position = Vector2(-375, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=747280662]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2067797681]
+position = Vector2(-375, -375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=335606591]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=874187912]
+position = Vector2(-375, -375)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=942576944]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=2102954349]
+position = Vector2(375, -375)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1291743298]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1444683228]
+z_index = -2
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_g5ine")
