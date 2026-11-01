@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c561nsr7xgox5"]
+
+[ext_resource type="Script" uid="uid://byentxkvjq6eg" path="res://scripts/saw.gd" id="1_cmu1i"]
+[ext_resource type="Texture2D" uid="uid://rpbtyr0v8nvb" path="res://sprites/awd.webp" id="2_gmx35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmu1i"]
+radius = 30.0
+
+[node name="Saw" type="Area2D" unique_id=1358184181]
+script = ExtResource("1_cmu1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128406843]
+shape = SubResource("CircleShape2D_cmu1i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1013368859]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("2_gmx35")

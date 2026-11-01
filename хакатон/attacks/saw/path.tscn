@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cyi72qgi1cifo"]
+
+[ext_resource type="Script" uid="uid://wekb57f3bnfn" path="res://scripts/path_follow_2d.gd" id="2_dsfkm"]
+[ext_resource type="PackedScene" uid="uid://c561nsr7xgox5" path="res://attacks/saw/saw.tscn" id="3_0gbra"]
+
+[sub_resource type="Curve2D" id="Curve2D_dsfkm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 750, 0, 0, 0, 0, 0, 750, 750, 0, 0, 0, 0, 54.072327, 748.8959, 0, 0, 0, 0, 0, 750, 0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="Path" type="Path2D" unique_id=994390223]
+curve = SubResource("Curve2D_dsfkm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1938213830]
+script = ExtResource("2_dsfkm")
+
+[node name="Saw" parent="PathFollow2D" unique_id=1358184181 instance=ExtResource("3_0gbra")]
+texture_filter = 1
