@@ -25,6 +25,10 @@ Restart="*uid://bwg8ij12gf6jv"
 window/stretch/mode="viewport"
 window/use_filter=true
 
+[global_group]
+
+win=""
+
 [input]
 
 jump={

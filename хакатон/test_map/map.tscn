@@ -178,6 +178,7 @@ script = ExtResource("8_2mh8h")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1353491338]
 stream = ExtResource("8_vvn0s")
+autoplay = true
 
 [node name="Label" type="Label" parent="." unique_id=1403313205]
 visible = false

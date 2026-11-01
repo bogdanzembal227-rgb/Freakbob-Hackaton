@@ -5,6 +5,7 @@ var pressed := false
 @onready var color_rect: ColorRect = $Area2D/ColorRect
 @onready var point_light_2d: PointLight2D = $Area2D/ColorRect/PointLight2D
 
+
 func _ready() -> void:
 	color_rect.color = color
 	point_light_2d.color = color
@@ -48,9 +49,14 @@ func become_blind() -> void:
 	player.get_node("PointLight2D").visible = true
 	player.get_node("CanvasModulate").visible = true
 
+
+@export var win_: PackedScene = preload("uid://xfj1e6y1run0")
 func win() -> void:
+	var win = win_.instantiate()
 	get_tree().paused  = true
-	$"../../Label".visible = true
+	AttacksManager.stop()
+	get_tree().root.add_child(win)
+	
 
 
 func change_gravity():
