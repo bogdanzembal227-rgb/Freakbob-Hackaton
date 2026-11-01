@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dmqe81famfodt"]
 
-[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_script"]
-[ext_resource type="Theme" path="res://menu/menu_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://5u863mgd0x5h" path="res://menu/main_menu.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://cr6trbpa2ocft" path="res://menu/menu_theme.tres" id="2_theme"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=728589328]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,16 +13,7 @@ grow_vertical = 2
 theme = ExtResource("2_theme")
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=629051264]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,23 +21,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1161506048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer" unique_id=2092047595]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PlayButton" type="Button" parent="CenterContainer/Buttons"]
+[node name="PlayButton" type="Button" parent="CenterContainer/Buttons" unique_id=198010796]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 70)
 layout_mode = 2
 text = "PLAY"
 
-[node name="OptionsButton" type="Button" parent="CenterContainer/Buttons"]
+[node name="OptionsButton" type="Button" parent="CenterContainer/Buttons" unique_id=266728799]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 70)
 layout_mode = 2
 text = "OPTIONS"
 
-[node name="ExitButton" type="Button" parent="CenterContainer/Buttons"]
+[node name="ExitButton" type="Button" parent="CenterContainer/Buttons" unique_id=1171886247]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 70)
 layout_mode = 2

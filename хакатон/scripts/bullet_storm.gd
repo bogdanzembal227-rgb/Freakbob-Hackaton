@@ -2,7 +2,7 @@ extends Node2D
 
 @export var bullet_scene : PackedScene =preload("uid://24gsiqxilx53")
 var sides: Dictionary = {
-	"ceiling": {"start": Vector2.ZERO, "along": Vector2.RIGHT, "fire": Vector2.DOWN},
+	"top": {"start": Vector2.ZERO, "along": Vector2.RIGHT, "fire": Vector2.DOWN},
 	"bottom": {"start": Vector2(0, 750), "along": Vector2.RIGHT, "fire": Vector2.UP},
 	"left_wall": {"start": Vector2.ZERO, "along": Vector2.DOWN, "fire": Vector2.RIGHT},
 	"right_wall": {"start": Vector2(750, 0), "along": Vector2.DOWN, "fire": Vector2.LEFT},

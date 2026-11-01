@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dg20mue0jjn2n"]
+
+[ext_resource type="Script" uid="uid://byrcx71a6yslk" path="res://scripts/homing_bots.gd" id="1_mnuhk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnuhk"]
+
+[node name="Homing bots" type="Area2D" unique_id=1574918935]
+script = ExtResource("1_mnuhk")
+steer_force = 3000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=594473926]
+shape = SubResource("CircleShape2D_mnuhk")

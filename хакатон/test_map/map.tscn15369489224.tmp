@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cpbjj4c8hdw0a"]
+
+[ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
+[ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
+[ext_resource type="PackedScene" uid="uid://c05qy5c6ye3y2" path="res://menu/pause_menu.tscn" id="2_8fiom"]
+[ext_resource type="PackedScene" uid="uid://dwkxb77go1rf4" path="res://attacks/homing vbots/homing_bot_despatcher.tscn" id="4_u1x6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0so17"]
+size = Vector2(750, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1x6b"]
+size = Vector2(200, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx4on"]
+size = Vector2(300, 10)
+
+[node name="Map" type="Node2D" unique_id=2124449286]
+script = ExtResource("1_bx8f5")
+
+[node name="layout" type="Node2D" parent="." unique_id=1878871604]
+position = Vector2(375, 375)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="layout" unique_id=111148038]
+position = Vector2(-375, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/StaticBody2D" unique_id=165544069]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="layout" unique_id=2000394986]
+position = Vector2(-375, -375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/StaticBody2D2" unique_id=1629257067]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="layout" unique_id=1957749109]
+position = Vector2(-375, -375)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/StaticBody2D3" unique_id=1102962993]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="layout" unique_id=796724529]
+position = Vector2(375, -375)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/StaticBody2D4" unique_id=497079861]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="platform" type="StaticBody2D" parent="layout" unique_id=791144530]
+position = Vector2(165, 225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/platform" unique_id=2001770525]
+shape = SubResource("RectangleShape2D_u1x6b")
+
+[node name="platform2" type="StaticBody2D" parent="layout" unique_id=129949414]
+position = Vector2(0, 103)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/platform2" unique_id=1872517866]
+shape = SubResource("RectangleShape2D_u1x6b")
+
+[node name="platform3" type="StaticBody2D" parent="layout" unique_id=1167261887]
+position = Vector2(-152, 224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/platform3" unique_id=1362656307]
+shape = SubResource("RectangleShape2D_u1x6b")
+
+[node name="platform4" type="StaticBody2D" parent="layout" unique_id=571233146]
+position = Vector2(-188, -225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/platform4" unique_id=1237666393]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_tx4on")
+
+[node name="platform5" type="StaticBody2D" parent="layout" unique_id=1892547095]
+position = Vector2(175, -224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/platform5" unique_id=247641607]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_tx4on")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1127939826]
+offset = Vector2(375, 375)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Character" parent="." unique_id=1005997622 instance=ExtResource("1_ac0vu")]
+position = Vector2(371, 345)
+jump_velocity = -800.0
+dash_speed = 1200.0
+
+[node name="PauseMenu" parent="." unique_id=1024353571 instance=ExtResource("2_8fiom")]
+
+[node name="Homing bot despatcher" parent="." unique_id=1421966843 instance=ExtResource("4_u1x6b")]
+position = Vector2(44, 687)

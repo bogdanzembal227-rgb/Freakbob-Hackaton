@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cpbjj4c8hdw0a"]
+
+[ext_resource type="PackedScene" uid="uid://b1rpvtuhwy4pn" path="res://MC related/character.tscn" id="1_ac0vu"]
+[ext_resource type="Script" uid="uid://b814xpe64lpja" path="res://test_map/map.gd" id="1_bx8f5"]
+[ext_resource type="PackedScene" uid="uid://c05qy5c6ye3y2" path="res://menu/pause_menu.tscn" id="2_8fiom"]
+[ext_resource type="PackedScene" uid="uid://dg20mue0jjn2n" path="res://attacks/homing vbots/homing_bots.tscn" id="4_u1x6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0so17"]
+size = Vector2(750, 1)
+
+[node name="Map" type="Node2D" unique_id=2124449286]
+script = ExtResource("1_bx8f5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=111148038]
+position = Vector2(0, 750)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=165544069]
+position = Vector2(375, 0)
+shape = SubResource("RectangleShape2D_0so17")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1127939826]
+offset = Vector2(375, 375)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Character" parent="." unique_id=1005997622 instance=ExtResource("1_ac0vu")]
+jump_velocity = -800.0
+dash_speed = 1200.0
+
+[node name="PauseMenu" parent="." unique_id=1024353571 instance=ExtResource("2_8fiom")]
+
+[node name="Homing bots" parent="." unique_id=1574918935 instance=ExtResource("4_u1x6b")]
+speed = 350
+steer_force = 50.0

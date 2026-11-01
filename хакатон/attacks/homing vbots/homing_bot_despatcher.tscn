@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwkxb77go1rf4"]
+
+[ext_resource type="Script" uid="uid://cw3qtu7ophe6q" path="res://scripts/homing_bot_despatcher.gd" id="1_402h6"]
+
+[node name="Homing bot despatcher" type="Node2D" unique_id=1421966843]
+script = ExtResource("1_402h6")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://24gsiqxilx53"]
 
 [ext_resource type="Script" uid="uid://cjqpy4vgqxh8s" path="res://attacks/bullet/bullet.gd" id="1_n51bf"]
+[ext_resource type="Texture2D" uid="uid://cwu0ruirmcvnw" path="res://sprites/microbot.png" id="2_xj72h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dydvb"]
 radius = 5.0
@@ -13,3 +14,7 @@ speed = 700.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2097754922]
 shape = SubResource("CapsuleShape2D_dydvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1563974978]
+texture_filter = 1
+texture = ExtResource("2_xj72h")

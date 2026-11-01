@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bdyd5qnm5xeo8"]
 
-[ext_resource type="Script" path="res://menu/options_menu.gd" id="1_script"]
-[ext_resource type="Theme" path="res://menu/menu_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://dt7jyu2ppuqs" path="res://menu/options_menu.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://cr6trbpa2ocft" path="res://menu/menu_theme.tres" id="2_theme"]
 
-[node name="OptionsMenu" type="Control"]
+[node name="OptionsMenu" type="Control" unique_id=1701226054]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_vertical = 2
 theme = ExtResource("2_theme")
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=603399151]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -21,9 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1292343599]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,16 +30,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="CenterContainer"]
+[node name="Content" type="VBoxContainer" parent="CenterContainer" unique_id=924120874]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Title" type="Label" parent="CenterContainer/Content"]
+[node name="Title" type="Label" parent="CenterContainer/Content" unique_id=598687558]
 layout_mode = 2
 text = "OPTIONS"
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="CenterContainer/Content"]
+[node name="BackButton" type="Button" parent="CenterContainer/Content" unique_id=699018793]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 70)
 layout_mode = 2

@@ -1,14 +1,9 @@
 extends Control
 
-## Сигнал для випадку, коли налаштування відкриті поверх гри (див. pause_menu).
 signal back_pressed
 
-## true  - окрема сцена (з головного меню): BACK веде в головне меню.
-## false - накладка поверх гри: BACK лише посилає сигнал back_pressed.
 @export var standalone: bool = true
 @export_file("*.tscn") var main_menu_path: String = "res://menu/main_menu.tscn"
-
-## Сюди пізніше можна додати налаштування (гучність, повний екран тощо).
 
 @onready var back_button: Button = %BackButton
 @onready var background: ColorRect = %Background

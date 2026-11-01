@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dg20mue0jjn2n"]
+
+[ext_resource type="Script" uid="uid://q7riyo46shdt" path="res://scripts/hom_bots.gd" id="1_0wqy8"]
+[ext_resource type="Script" uid="uid://p3o2o30482x2" path="res://attacks/components/Hitbox.gd" id="2_0wqy8"]
+[ext_resource type="Script" uid="uid://bd8tj0vldpkct" path="res://scripts/hom_bot_trail.gd" id="2_fq8jw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnuhk"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wqy8"]
+radius = 5.0
+
+[node name="Homing bots" type="CharacterBody2D" unique_id=1196668060]
+script = ExtResource("1_0wqy8")
+speed = 200.0
+
+[node name="hom_bot_trail" type="Line2D" parent="." unique_id=200697062]
+texture_filter = 1
+width = 3.0
+script = ExtResource("2_fq8jw")
+max_points = 20
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1104823771]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_0wqy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=594473926]
+shape = SubResource("CircleShape2D_mnuhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1788538209]
+shape = SubResource("CircleShape2D_0wqy8")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=915499978]
+wait_time = 15.0
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

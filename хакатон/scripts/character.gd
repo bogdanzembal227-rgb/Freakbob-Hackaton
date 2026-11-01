@@ -40,6 +40,8 @@ var facing := 1.0
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 
+func _ready() -> void:
+	add_to_group("player")
 
 
 func _physics_process(delta: float) -> void:
@@ -81,6 +83,7 @@ func _physics_process(delta: float) -> void:
 	var wall_dir := _get_wall_dir()
 	var wall_sliding := not is_on_floor() and wall_dir != 0 and velocity.y > 0.0 \
 			and input_x == float(wall_dir)
+	#kolhoz
 	$Hurtbox/CollisionShape2D.position = Vector2.ZERO
 	$Hurtbox/CollisionShape2D.scale = Vector2(1,1)
 	if not is_on_floor():
@@ -140,7 +143,7 @@ func _update_animation() -> void:
 		sprite.flip_h = false
 	elif velocity.x > 10.0:
 		sprite.flip_h = true
-
+	
 	var anim := "default"
 	#if velocity.y <-10.0 and not is_on_floor():
 		#anim = "jump"
