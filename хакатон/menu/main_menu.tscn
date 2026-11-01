@@ -1,56 +1,77 @@
-[gd_scene format=3 uid="uid://dmqe81famfodt"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://5u863mgd0x5h" path="res://menu/main_menu.gd" id="1_script"]
-[ext_resource type="Theme" uid="uid://cr6trbpa2ocft" path="res://menu/menu_theme.tres" id="2_theme"]
-[ext_resource type="AudioStream" uid="uid://c4l7uuen64g6i" path="res://menu/theloopa.wav" id="3_o5w3e"]
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://menu/menu_background.png" id="2_bg"]
+[ext_resource type="Texture2D" path="res://menu/btn_menu.png" id="3_menu"]
+[ext_resource type="Texture2D" path="res://menu/btn_options.png" id="4_options"]
+[ext_resource type="Texture2D" path="res://menu/btn_exit.png" id="5_exit"]
+[ext_resource type="Script" path="res://menu/texture_button_fx.gd" id="6_fx"]
 
-[node name="MainMenu" type="Control" unique_id=728589328]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_theme")
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="." unique_id=629051264]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.243, 0.259, 0.259, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1161506048]
+[node name="Art" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Buttons" type="VBoxContainer" parent="CenterContainer" unique_id=2092047595]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 14
 
-[node name="PlayButton" type="Button" parent="CenterContainer/Buttons" unique_id=198010796]
+[node name="PlayButton" type="TextureButton" parent="CenterContainer/Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
-text = "PLAY"
+texture_normal = ExtResource("3_menu")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")
 
-[node name="OptionsButton" type="Button" parent="CenterContainer/Buttons" unique_id=266728799]
+[node name="OptionsButton" type="TextureButton" parent="CenterContainer/Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
-text = "OPTIONS"
+texture_normal = ExtResource("4_options")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")
 
-[node name="ExitButton" type="Button" parent="CenterContainer/Buttons" unique_id=1171886247]
+[node name="ExitButton" type="TextureButton" parent="CenterContainer/Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
-text = "EXIT"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1676600781]
-stream = ExtResource("3_o5w3e")
+texture_normal = ExtResource("5_exit")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_fx")

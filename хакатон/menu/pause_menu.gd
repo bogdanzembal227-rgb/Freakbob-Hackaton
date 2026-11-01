@@ -1,13 +1,18 @@
 extends CanvasLayer
+
+## Кнопка зліва вгорі відкриває меню поверх гри (гра на паузі й розмита).
+## Esc теж відкриває/закриває меню.
+
+## Сцена головного меню (EXIT повертає сюди). Можна змінити в Inspector.
 @export_file("*.tscn") var main_menu_path: String = "res://menu/main_menu.tscn"
 
 @onready var open_button: TextureButton = %OpenButton
 @onready var overlay: Control = %Overlay
 @onready var main_buttons: Control = %MainButtons
 @onready var options_menu: Control = %OptionsMenu
-@onready var play_button: Button = %PlayButton
-@onready var options_button: Button = %OptionsButton
-@onready var exit_button: Button = %ExitButton
+@onready var play_button: BaseButton = %PlayButton
+@onready var options_button: BaseButton = %OptionsButton
+@onready var exit_button: BaseButton = %ExitButton
 
 
 func _ready() -> void:
@@ -31,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func open_menu() -> void:
-	get_tree().paused = true
+	get_tree().paused = true  # гра зупиняється
 	open_button.hide()
 	overlay.show()
 	play_button.grab_focus()
@@ -40,7 +45,7 @@ func open_menu() -> void:
 func close_menu() -> void:
 	overlay.hide()
 	open_button.show()
-	get_tree().paused = false
+	get_tree().paused = false  # гра продовжується
 
 
 func _on_options_pressed() -> void:
@@ -55,5 +60,6 @@ func _on_options_back() -> void:
 
 
 func _on_exit_pressed() -> void:
+	# Спочатку знімаємо паузу, інакше головне меню теж буде "на паузі" і кнопки не спрацюють
 	get_tree().paused = false
 	get_tree().change_scene_to_file(main_menu_path)

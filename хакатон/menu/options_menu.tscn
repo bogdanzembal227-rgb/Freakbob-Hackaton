@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bdyd5qnm5xeo8"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://dt7jyu2ppuqs" path="res://menu/options_menu.gd" id="1_script"]
-[ext_resource type="Theme" uid="uid://cr6trbpa2ocft" path="res://menu/menu_theme.tres" id="2_theme"]
+[ext_resource type="Script" path="res://menu/options_menu.gd" id="1_script"]
+[ext_resource type="Theme" path="res://menu/menu_theme.tres" id="2_theme"]
 
-[node name="OptionsMenu" type="Control" unique_id=1701226054]
+[node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_vertical = 2
 theme = ExtResource("2_theme")
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="." unique_id=603399151]
+[node name="Background" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -21,8 +21,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.243, 0.259, 0.259, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1292343599]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,17 +31,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="CenterContainer" unique_id=924120874]
+[node name="Content" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Title" type="Label" parent="CenterContainer/Content" unique_id=598687558]
+[node name="Title" type="Label" parent="CenterContainer/Content"]
 layout_mode = 2
 text = "OPTIONS"
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="CenterContainer/Content" unique_id=699018793]
+[node name="BackButton" type="Button" parent="CenterContainer/Content"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 70)
+custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
 text = "BACK"
