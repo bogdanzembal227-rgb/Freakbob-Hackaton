@@ -1,3 +1,4 @@
+
 [gd_scene format=3 uid="uid://m4jfbc4axn4x"]
 
 [ext_resource type="Script" uid="uid://5u863mgd0x5h" path="res://menu/main_menu.gd" id="1_script"]
@@ -9,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c4l7uuen64g6i" path="res://menu/theloopa.wav" id="7_0tw43"]
 
 [node name="MainMenu" type="Control" unique_id=1809439764]
+
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +19,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
+
 [node name="Background" type="ColorRect" parent="." unique_id=150498196]
+
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +30,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.243, 0.259, 0.259, 1)
 
+
 [node name="Art" type="TextureRect" parent="." unique_id=695111114]
+
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +43,9 @@ texture = ExtResource("2_bg")
 expand_mode = 1
 stretch_mode = 5
 
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1588944470]
+
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +53,7 @@ anchor_bottom = 1.0
 offset_top = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+
 
 [node name="Buttons" type="VBoxContainer" parent="CenterContainer" unique_id=1432155924]
 layout_mode = 2
@@ -55,11 +64,14 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
 texture_normal = ExtResource("3_play")
+
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("6_fx")
 
+
 [node name="OptionsButton" type="TextureButton" parent="CenterContainer/Buttons" unique_id=677519451]
+
 unique_name_in_owner = true
 custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
@@ -69,6 +81,7 @@ stretch_mode = 5
 script = ExtResource("6_fx")
 
 [node name="ExitButton" type="TextureButton" parent="CenterContainer/Buttons" unique_id=1800473960]
+
 unique_name_in_owner = true
 custom_minimum_size = Vector2(208, 88)
 layout_mode = 2
@@ -80,3 +93,4 @@ script = ExtResource("6_fx")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2141506653]
 stream = ExtResource("7_0tw43")
 autoplay = true
+

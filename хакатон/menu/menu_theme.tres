@@ -1,4 +1,6 @@
+
 [gd_resource type="Theme" format=3 uid="uid://cmk1sesd0ojp7"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_focus"]
 draw_center = false
@@ -7,6 +9,7 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.9, 0.9, 0.9, 1)
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
 bg_color = Color(0.34, 0.39, 0.4, 1)
@@ -31,6 +34,7 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.45, 0.5, 0.5, 1)
+
 
 [resource]
 Button/colors/font_color = Color(0.9, 0.9, 0.9, 1)

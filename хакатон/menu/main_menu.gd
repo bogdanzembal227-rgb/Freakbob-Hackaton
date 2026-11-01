@@ -10,7 +10,6 @@ extends Control
 
 
 func _ready() -> void:
-	
 	play_button.pressed.connect(_on_play_pressed)
 	options_button.pressed.connect(_on_options_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)
