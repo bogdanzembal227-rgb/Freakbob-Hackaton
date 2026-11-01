@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var max_speed := 420.0
 @export var ground_accel := 3200.0
@@ -37,6 +38,8 @@ var dash_cd_timer := 0.0
 var dash_dir := Vector2.ZERO
 var dashes_left := 1
 var facing := 1.0
+var is_dashing: bool = false
+var is_blind: bool = false
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 
@@ -45,6 +48,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_blind:
+		pass
 	var input_x := Input.get_axis("move_left", "move_right")
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_x != 0.0:
@@ -59,11 +64,13 @@ func _physics_process(delta: float) -> void:
 		dashes_left = air_dashes
 		
 	if dash_timer > 0.0:
+		is_dashing = true
 		dash_timer -= delta
 		_update_ghosts(delta, true)
 		velocity = _dash_velocity()
 		move_and_slide()
 		if dash_timer <= 0.0:
+			is_dashing = false
 			velocity.x *= 0.4
 			velocity.y = clampf(velocity.y, dash_end_up_speed, max_fall_speed)
 		_squash_stretch(delta)

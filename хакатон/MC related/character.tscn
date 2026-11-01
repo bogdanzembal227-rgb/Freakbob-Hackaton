@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cy76aprqkbt1b" path="res://sprites/slime/run/Sprite-0005.png" id="19_cgxxq"]
 [ext_resource type="Texture2D" uid="uid://quagonprm6sd" path="res://sprites/slime/run/Sprite-0006.png" id="20_t8n6c"]
 [ext_resource type="Script" uid="uid://c5424udig5wb4" path="res://attacks/components/Hurbox.gd" id="21_cu22p"]
+[ext_resource type="Script" uid="uid://d07cf6m4xyy6r" path="res://MC related/color_rect.gd" id="23_ubvjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_reghy"]
 size = Vector2(38, 34)
@@ -112,6 +113,7 @@ size = Vector2(32, 28)
 collision_layer = 2
 script = ExtResource("1_reghy")
 dash_speed = 800.0
+air_dashes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=444526359]
 position = Vector2(-0.5, 1.5)
@@ -123,7 +125,7 @@ scale = Vector2(1.26, 1.26)
 sprite_frames = SubResource("SpriteFrames_1srl5")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1498744299]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("21_cu22p")
 
@@ -131,3 +133,12 @@ script = ExtResource("21_cu22p")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_cu22p")
 debug_color = Color(0.9721127, 0.16925484, 1.92523e-07, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1042583937]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=944820096]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("23_ubvjy")

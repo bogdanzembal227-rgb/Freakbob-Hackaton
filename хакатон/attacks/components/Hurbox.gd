@@ -4,6 +4,7 @@ class_name Hurtbox
 func _ready() -> void:
 	collision_layer = 0 
 	collision_mask = 0
+	set_collision_layer_value(2,true)
 	set_collision_mask_value(2,true)
 	area_entered.connect(on_area_entered)
 

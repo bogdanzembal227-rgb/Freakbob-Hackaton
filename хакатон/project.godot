@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MoveHistory="*uid://cjjodgahg0xcg"
+AttacksManager="*uid://cwiqaasml7nas"
 
 [display]
 
